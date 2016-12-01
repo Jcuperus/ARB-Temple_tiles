@@ -34,12 +34,12 @@ public class PlayerBehaviour : MonoBehaviour {
                 toggleTarget();
             }
 
-            foreach (Touch touch in Input.touches) {
-                if (touch.phase == TouchPhase.Began) //Touch
-                {
-                    toggleTarget();
-                }
-            }
+            //foreach (Touch touch in Input.touches) {
+            //    if (touch.phase == TouchPhase.Began) //Touch
+            //    {
+            //        toggleTarget();
+            //    }
+            //}
         }
     }
 
@@ -61,10 +61,7 @@ public class PlayerBehaviour : MonoBehaviour {
         if (targetTiles != null) {
             int tileCount = targetTiles.Count;
             if (tileCount > 0) {
-                Debug.Log("tile count: " + tileCount);
-                Debug.Log("Tile index1: " + tileIndex);
                 tileIndex = (tileIndex + 1) % tileCount;
-                Debug.Log("Tile index2: " + tileIndex);
                 targetTiles[tileIndex].GetComponent<TileBehaviour>().setSelected(true);
             }
         }
