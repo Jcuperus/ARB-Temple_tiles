@@ -2904,7 +2904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b7cb438444b549429a2911a0a1bffdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepInterval: 30
+  stepInterval: 20
 --- !u!21 &1818934418
 Material:
   serializedVersion: 6
