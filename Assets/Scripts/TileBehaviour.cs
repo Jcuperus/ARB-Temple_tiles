@@ -19,13 +19,15 @@ public class TileBehaviour : MonoBehaviour {
 
     void Update () {
         if (isCurrent) {
-            GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
+            //GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
         }
         else if (isSelected) {
-            GetComponent<SpriteRenderer>().color = new Color(0, 255, 0);
+            //GetComponent<SpriteRenderer>().color = new Color(0, 255, 0);
+            GetComponent<Halo>().setActive(true);
         }
         else {
-            GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+            //GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+            GetComponent<Halo>().setActive(false);
         }
     }
 
