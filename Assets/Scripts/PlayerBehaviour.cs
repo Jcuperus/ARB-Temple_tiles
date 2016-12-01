@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class PlayerBehaviour : MonoBehaviour {
     public int stepInterval = 15; //Time between steps
@@ -19,14 +20,12 @@ public class PlayerBehaviour : MonoBehaviour {
 	void Update () {
         if (currentTile != null) {
             targetTiles = gm.getConnections(currentTile);
-            //Move to tile subroutine
-            //Update possible tiles (?)
+
             currentTile.GetComponent<TileBehaviour>().setCurrent(true);
             if (targetTiles != null && targetTiles.Count > 0) {
                 foreach (GameObject tile in targetTiles) { //Reset all selected
-                    tile.GetComponent<TileBehaviour>().setSelected(false);
+                    tile.GetComponent<TileBehaviour>().setSelected(tile == targetTiles[tileIndex]);
                 }
-                targetTiles[tileIndex].GetComponent<TileBehaviour>().setSelected(true); //Set current selected
             }
 
             //Increment tileIndex on tap (% possible tiles count)
@@ -45,28 +44,32 @@ public class PlayerBehaviour : MonoBehaviour {
     }
 
     public IEnumerator tileCountdown() {
-        Debug.Log("Countdown started");
         while (isActive) {
+            Debug.Log("Timer started for: " + currentTile);
+            currentTile.GetComponentInChildren<TileTimer>().startTimer();
             yield return new WaitForSeconds(stepInterval);
             if (!movePlayer()) {
                 isActive = false;
                 Debug.Log("Game over");
+                StartCoroutine(endGame());
                 //Game over (end game)
             }
         }
     }
 
     public void toggleTarget() {
-        //TODO: update selected
         if (targetTiles != null) {
             int tileCount = targetTiles.Count;
             if (tileCount > 0) {
+                Debug.Log("tile count: " + tileCount);
+                Debug.Log("Tile index1: " + tileIndex);
                 tileIndex = (tileIndex + 1) % tileCount;
+                Debug.Log("Tile index2: " + tileIndex);
                 targetTiles[tileIndex].GetComponent<TileBehaviour>().setSelected(true);
             }
         }
         
-        Debug.Log("Tile index: " + tileIndex);
+        
     }
 
     public void startMovement(GameObject initialTile) {
@@ -80,8 +83,17 @@ public class PlayerBehaviour : MonoBehaviour {
             currentTile.GetComponent<TileBehaviour>().setCurrent(false);
             currentTile = targetTiles[tileIndex];
             currentTile.GetComponent<TileBehaviour>().setCurrent(true);
+            if (currentTile.tag == "End") {
+                Debug.Log("Winner");
+                StartCoroutine(endGame());
+            }
             return true;
         }
         return false;
+    }
+
+    private IEnumerator endGame() {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("VictoryScene");
     }
 }

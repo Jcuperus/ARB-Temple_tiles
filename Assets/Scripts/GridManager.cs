@@ -13,20 +13,16 @@ public class GridManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        foreach (KeyValuePair<GameObject, List<GameObject>> source in connections) {
-            foreach (GameObject gameObject in source.Value) {
-                //TODO: update card connections visuals
-                Debug.Log("Key: " + source.Key.transform.position + " / Value: " + gameObject.transform.position);
-            }
-        }
+        //foreach (KeyValuePair<GameObject, List<GameObject>> source in connections) {
+        //    foreach (GameObject gameObject in source.Value) {
+        //        //TODO: update card connections visuals
+        //        Debug.Log("Key: " + source.Key.transform.position + " / Value: " + gameObject.transform.position);
+        //    }
+        //}
 	}
 
     public void addConnection(GameObject source, GameObject target) {
         Debug.Log("Connection added");
-        //if (source.tag == "Start") { //First tile detected, start game
-        //    Debug.Log("First tile found");
-        //    pb.startMovement(source);
-        //}
 
         if (!connections.ContainsKey(source)) {
             connections.Add(source, new List<GameObject>() {target});
@@ -45,6 +41,7 @@ public class GridManager : MonoBehaviour {
 
     public void removeConnection(GameObject source, GameObject target) {
         if (connections.ContainsKey(source)) {
+            target.GetComponent<TileBehaviour>().setSelected(false);
             connections[source].Remove(target);
         }
     }

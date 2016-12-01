@@ -12,6 +12,7 @@ public class TileBehaviour : MonoBehaviour {
         gm = GameObject.Find("GameManager").GetComponent<GridManager>();
         pb = GameObject.Find("GameManager").GetComponent<PlayerBehaviour>();
         if (tag == "Start") {
+            Debug.Log("Start");
             pb.startMovement(gameObject);
         }
 	}
@@ -33,7 +34,6 @@ public class TileBehaviour : MonoBehaviour {
     }
 
     public void setSelected(bool selected) {
-        Debug.Log(gameObject + ": " + selected);
         isSelected = selected;
     }
 

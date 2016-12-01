@@ -11,9 +11,4 @@ public class CameraSettingInit : MonoBehaviour {
             Debug.Log("Failed to set focus mode (unsupported mode).");
         }
     }
-
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

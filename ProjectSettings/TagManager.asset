@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tiles
   - Start
+  - End
   layers:
   - Default
   - TransparentFX
