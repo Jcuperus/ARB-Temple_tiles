@@ -72,7 +72,7 @@ Transform:
   m_GameObject: {fileID: 1000013139398664}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.065, y: 0.065, z: 1}
+  m_LocalScale: {x: 0.065, y: 0.065, z: 0.065}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_Children:
   - {fileID: 4000010405148144}
@@ -132,7 +132,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4, y: 10, z: 0.5}
+  m_Size: {x: 4, y: 10, z: 4}
   m_Center: {x: -9.5, y: 0, z: 0}
 --- !u!65 &65000013135544260
 BoxCollider:
@@ -144,7 +144,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4, y: 10, z: 0.5}
+  m_Size: {x: 4, y: 10, z: 4}
   m_Center: {x: 9.5, y: 0, z: 0}
 --- !u!65 &65000013749467480
 BoxCollider:
@@ -156,7 +156,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 4, z: 0.5}
+  m_Size: {x: 10, y: 4, z: 4}
   m_Center: {x: 0, y: 9.5, z: 0}
 --- !u!65 &65000013891598836
 BoxCollider:
@@ -168,7 +168,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 4, z: 0.5}
+  m_Size: {x: 10, y: 4, z: 4}
   m_Center: {x: 0, y: -9.5, z: 0}
 --- !u!102 &102000013409293532
 TextMesh:
@@ -213,7 +213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ddddcef10ad7424a8a1d64b62150ff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerLimit: 30
 --- !u!212 &212000010725691576
 SpriteRenderer:
   m_ObjectHideFlags: 1
