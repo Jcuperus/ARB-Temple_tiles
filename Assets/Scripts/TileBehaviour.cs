@@ -23,11 +23,13 @@ public class TileBehaviour : MonoBehaviour {
         }
         else if (isSelected) {
             //GetComponent<SpriteRenderer>().color = new Color(0, 255, 0);
-            GetComponent<Halo>().setActive(true);
+            //Behaviour halo = (Behaviour)GetComponent("Halo");
+            //halo.enabled = true;
         }
         else {
             //GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
-            GetComponent<Halo>().setActive(false);
+            //Behaviour halo = (Behaviour)GetComponent("Halo");
+            //halo.enabled = false;
         }
     }
 
